@@ -1,0 +1,18 @@
+#book-form{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+}
+.form{
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+    gap:10px;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: brown;
+    padding: 20px;
+    text-align: center;
+}
