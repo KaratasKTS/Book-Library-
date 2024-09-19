@@ -1,36 +1,17 @@
 
-const submit = document.getElementById('submit');
-
-let library = [];
-
-
-function getValue(event) {
-    // Prevent the form from submitting
-    event.preventDefault();
-
-    const bookTitle = document.getElementById('book-title');
-    const bookAuthor = document.getElementById('book-author');
-    const bookStatus = document.getElementById('status');
-    
-    // Check if elements exist and extract values
-    const title = bookTitle ? bookTitle.trim() : '';
-    const author = bookAuthor.value;
-    const status = bookStatus.value;
-
-    //create book object, passing the input values 
-    let object = new book(title, author, status);
-    library.push(object);
-
-    
-    // Logging the values
-    console.log('Title:', title);
-    console.log('Author:', author);
-    console.log('Pages:', pages);
-    console.log('Status:', status);
-    console.log(library);
+const submit = document.querySelector('.submit');
+const dialog = document.querySelector('.dialog');
+const closeDialog = document.querySelector('.closeDialog');
+closeDialog.onclick = () =>{
+    dialog.close();
 }
 
+const start = document.querySelector('.start');
+start.onclick = () =>{
+dialog.showModal();
+}
 
+let library = [];
 
 
 function book (title,author,pages,read ){
@@ -39,6 +20,44 @@ function book (title,author,pages,read ){
     this.pages = pages;
     this.read = read;
 };
+
+function getValue(event) {
+    event.preventDefault();
+
+    // Prevent the form from submitting
+    
+    const bookTitle = document.getElementById('book-title');
+    const bookAuthor = document.getElementById('book-author');
+    const readStatus = document.getElementById('status-read');
+    readStatus.value = undefined;
+    
+    // Check if elements exist and extract values
+    const title = bookTitle.value;
+    const author = bookAuthor.value;
+    const read = readStatus.checked ? "Read" : "not read";
+ 
+
+    //create book object, passing the input values 
+    let object = new book(title, author, read);
+    library.push(object);
+
+    
+    // Logging the values
+    console.log('Title:', title);
+    console.log('Author:', author);
+    console.log('Status:', read);
+    
+    console.log(library);
+    console.log( library[2].title);
+
+    
+}
+
+
+
+
+
+
 
 
 //gets value from inputs

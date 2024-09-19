@@ -9,28 +9,33 @@
 </head>
 <body>
     
-    <form id="book-form">
-        <div class= "form">
-            <label for="book-title">Book title</label>
-            <input type="text" id="book-title">
-        
-            <label for="book-author">Book author</label>
-            <input type="text" id="book-author">
-        
-            <fieldset>
-                <label for="status">Read</label>
-                <input type="checkbox" placeholder="yes or no" id="status" value="read">
-                
-                <label for="status">Not Read</label>
-                <input type="checkbox" placeholder="yes or no" id="status" value="not">
-            
-            </fieldset>
-            
-            <button type="submit" onclick="getValue(event)">Submit</button>
-        </div>
-        
-    </form>
     
+    
+    <dialog class="dialog">
+        <form id="book-form">
+            <div class="form">
+                <label for="book-title">Book title</label>
+                <input type="text" id="book-title" required>
+
+                <label for="book-author">Book author</label>
+                <input type="text" id="book-author" required>
+
+                <fieldset>
+                    <legend>Status</legend>
+                    <label for="status-read">Read</label>
+                    <input type="checkbox" id="status-read" name="status" value="read">
+
+                </fieldset>
+
+                <button class="submite"  onclick="getValue(event)">Submit</button>
+                <button class="closeDialog">Close</button>
+            </div>
+        </form>
+
+        
+    </dialog>
+    
+    <button class="start">Start</button>
     
 </body>
 </html>
