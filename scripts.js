@@ -1,65 +1,83 @@
 
 const submit = document.querySelector('.submit');
+const start = document.querySelector('.start');
 const dialog = document.querySelector('.dialog');
+const Library = document.querySelector('.Library');
+const grid = document.querySelector('.Divform');
 const closeDialog = document.querySelector('.closeDialog');
 closeDialog.onclick = () =>{
     dialog.close();
 }
 
-const start = document.querySelector('.start');
+
 start.onclick = () =>{
 dialog.showModal();
 }
 
-let library = [];
 
-
-function book (title,author,pages,read ){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-};
-
-function getValue(event) {
-    event.preventDefault();
-
-    // Prevent the form from submitting
+const openLibrary = document.querySelector('.openLibrary').onclick = () =>{
     
-    const bookTitle = document.getElementById('book-title');
-    const bookAuthor = document.getElementById('book-author');
-    const readStatus = document.getElementById('status-read');
-    readStatus.value = undefined;
-    
-    // Check if elements exist and extract values
-    const title = bookTitle.value;
-    const author = bookAuthor.value;
-    const read = readStatus.checked ? "Read" : "not read";
- 
-
-    //create book object, passing the input values 
-    let object = new book(title, author, read);
-    library.push(object);
-
-    
-    // Logging the values
-    console.log('Title:', title);
-    console.log('Author:', author);
-    console.log('Status:', read);
-    
-    console.log(library);
-    console.log( library[2].title);
-
-    
+    Library.showModal();
+    displayLibrary();
+}
+const closeLibrary = document.querySelector('.closeLibrary').onclick = (event)=>{
+    event.stopPropagation();
+    Library.close();
 }
 
 
 
 
+//library
+let library = [];
 
+
+//book object 
+function book (title,author,read ){
+    this.title = title;
+    this.author = author;
+    this.read = read;
+};
 
 
 
 //gets value from inputs
 //passes the values into the book contructor 
 //pushes the objects to library aray 
+
+function getValue(event) {
+    event.preventDefault();  
+    
+    const bookTitle = document.getElementById('book-title');
+    const bookAuthor = document.getElementById('book-author');
+    const readStatus = document.getElementById('status-read');  
+
+   
+    const title = bookTitle.value;
+    const author = bookAuthor.value;
+    const read = readStatus.checked ? "Read" : "Not read";  
+
+   
+    let newBook = new book(title, author, read);  
+    library.push(newBook);  
+}
+
+//loops through array and then appends on the grid with the arrays objects info 
+
+function displayLibrary(){
+  
+    for( let i = 0; i < library.length; i++){
+        let div = document.createElement('div');
+        div.classList.add('child');
+        div.innerHTML = 
+        `<strong>Title:</strong> ${library[i].title} <br>
+             <strong>Author:</strong> ${library[i].author} <br>
+             <strong>Status:</strong> ${library[i].read}`;
+        grid.appendChild(div);
+        
+    }
+}
+
+
+
+

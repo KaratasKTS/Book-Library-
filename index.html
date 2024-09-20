@@ -23,19 +23,31 @@
                 <fieldset>
                     <legend>Status</legend>
                     <label for="status-read">Read</label>
-                    <input type="checkbox" id="status-read" name="status" value="read">
+                    <input type="checkbox" id="status-read">
 
                 </fieldset>
 
-                <button class="submite"  onclick="getValue(event)">Submit</button>
-                <button class="closeDialog">Close</button>
+                <button type="button" class="submite"  onclick="getValue(event)">Submit</button>
+                <button type="button" class="closeDialog">Close</button>
+                <button type="button" onclick="displayLibrary()" class="openLibrary" >library</button>
             </div>
         </form>
 
         
     </dialog>
-    
-    <button class="start">Start</button>
+
+    <dialog class="Library">
+        
+            <div class="Divform">
+               
+                <div class="button1" ><button class="closeLibrary">close</button></div>
+            </div>
+            
+            
+        
+    </dialog>
+   
+    <button type="button" class="start">Start</button>
     
 </body>
 </html>
