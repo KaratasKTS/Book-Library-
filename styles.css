@@ -1,7 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+:root {
+    --border-color: #ffbf007b;
+    --background-color:#26332D;
+    --background-color-2:#898B57;
+    --text-color: aliceblue;
+    font-family: 'Cinzel';
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 20px;
+    background-image: url(images/3346767.jpg);
+    background-size: cover;
+    flex-direction: column;
+    gap:50px;  
+}
+
 dialog{
     border:none;
     height: 60%;
     width: 70%;
+    background-color: var(--background-color-2);
     
 }
 .form{
@@ -39,7 +64,48 @@ dialog{
    align-items: center;
     
 }
+.text{
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.start{
+    padding: 10px 40px 10px 40px ;
+    font-size: 20px;
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+    border-width: 2px;
+}
 
 
+h1{
+  font-size: 70px;
+  padding: 0;
+  margin: 0px;
+}
+h3{
+    font-size: 30px;
+}
+.h2h1, h1, h3 {
+    
+    gap: 1px;
+    padding: 0px; 
+    margin: 0px;;
+}
+h2{
+    font-size: 30px;
+    font-weight: 300;
+}
 
+.button-basic-styles{
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+    padding:5px 15px 5px 15px;
+    border-radius: 7px;
 
+}

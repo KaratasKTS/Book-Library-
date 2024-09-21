@@ -1,4 +1,4 @@
-
+//selectors & eventListeners 
 const submit = document.querySelector('.submit');
 const start = document.querySelector('.start');
 const dialog = document.querySelector('.dialog');
@@ -32,7 +32,7 @@ const closeLibrary = document.querySelector('.closeLibrary').onclick = (event)=>
 let library = [];
 
 
-//book object 
+//book Constructor
 function book (title,author,read ){
     this.title = title;
     this.author = author;
@@ -63,21 +63,40 @@ function getValue(event) {
 }
 
 //loops through array and then appends on the grid with the arrays objects info 
-
 function displayLibrary(){
-  
+    grid.innerHTML = "";
     for( let i = 0; i < library.length; i++){
+
         let div = document.createElement('div');
         div.classList.add('child');
+        div.id=`${i}`;
         div.innerHTML = 
         `<strong>Title:</strong> ${library[i].title} <br>
              <strong>Author:</strong> ${library[i].author} <br>
-             <strong>Status:</strong> ${library[i].read}`;
+             <strong>Status:</strong> ${library[i].read}<br>
+             <strong> change status: 
+                    <fieldset>
+                    <legend>Status</legend>
+                    <label for="status-read-${i}">Read</label>
+                    <input type="checkbox" id="status-read-${i}" ${library[i].read === "Read" ? "checked" : ""} onchange="changeStatus(${i})">
+                </fieldset>
+                <button type="button" class="button-basic-styles" onclick="removeBook(${i})">Remove Book</button>
+            </strong>`;
         grid.appendChild(div);
         
     }
 }
 
+function removeBook(value){
+    library.splice(value, 1);
+    displayLibrary();
+}
+
+function changeStatus(index) {
+    const checkbox = document.getElementById(`status-read-${index}`);
+    library[index].read = checkbox.checked ? "Read" : "Not read";
+    displayLibrary();  // Refresh the display to update the status
+}
 
 
 
