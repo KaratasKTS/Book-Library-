@@ -105,22 +105,13 @@ input:focus {
     flex-direction: column;
     gap: 0px;
 }
-.start{
-    padding: 10px 40px 10px 40px ;
-    font-size: 20px;
-    border-color: var(--border-color);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-weight: 600;
-    border-width: 2px;
-    
-}
 
 
 h1{
   font-size: 70px;
   padding: 0;
   margin: 0px;
+  animation: float 3s ease-in-out infinite;
 }
 h3{
     font-size: 30px;
@@ -152,14 +143,17 @@ h2{
     
 }
 .start:hover{
-    transform: scale(105%);
+    transform: scale(103%);
     transition: 0.2s ease-in-out;
     box-shadow: 1px 1px 70px 3px rgba(255, 255, 255, 0.618);
 }
 
 .child{
     font-size: 20px;
-    margin: 10px;;
+    margin: 10px;
+    border-radius: 10px;
+    border-color: var(--border-color);
+    border-width: 3px;
 }
 
 .childContent{
@@ -175,6 +169,61 @@ h2{
     left: 0px;
     
 }
+
+fieldset{border-color: var(--border-color);
+border-width: 3px;
+border-radius: 3px;
+}
+
+.textChild{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
 .childText{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+.leg,{
+    margin: 30px 0 30px 0 ;
+}
+
+.status{
+    margin: 30px 0 0 0 ;
+}
+
+.buttonnn{
+    margin:30px 0 0 0 ;
+}
+
+
+
+
+.start{
+    padding: 10px 40px 10px 40px ;
+    font-size: 20px;
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+    border-width: 2px;
     
+}
+
+@keyframes float {
+	0% {
+		
+		transform: translatey(0px);
+	}
+	50% {
+		
+		transform: translatey(+10px);
+	}
+	100% {
+		
+		transform: translatey(0px);
+	}
 }

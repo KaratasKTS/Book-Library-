@@ -74,18 +74,21 @@ function displayLibrary(){
         `
         <div class="childContent">
         <div class:"childText">
-        <strong>Title:</strong> ${library[i].title} <br>
+        <div class="textChild">
+             <strong>Title:</strong> ${library[i].title} <br>
              <strong>Author:</strong> ${library[i].author} <br>
              <strong>Status:</strong> ${library[i].read}<br>
-             <strong> change status: 
+        </div>
+             
+             <strong> <div class="status">change status: <div>
                     <fieldset>
-                    <legend>Status</legend>
+                    <legend class="leg">Status</legend>
                     <label for="status-read-${i}">Read</label>
                     <input type="checkbox" id="status-read-${i}" ${library[i].read === "Read" ? "checked" : ""} onchange="changeStatus(${i})">
                 </fieldset>
         </div>
         <div class="childButton">        
-                <button type="button" class="button-basic-styles" onclick="removeBook(${i})">Remove Book</button>
+                <button type="button" class="button-basic-styles buttonnn" onclick="removeBook(${i})">Remove Book</button>
         </div>  
         </div>      
             </strong>`;
